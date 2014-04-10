@@ -4,6 +4,11 @@ from newspaper import Article
 
 app = Flask(__name__)
 
+@app.route("/")
+
+def get_index():
+  return 'Hello'
+
 @app.route('/details', methods = ['GET'])
 
 def get_details():
