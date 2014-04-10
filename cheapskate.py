@@ -19,16 +19,12 @@ def get_details():
     article = Article(url)
     article.download()
     article.parse()
-    article.nlp()
-    article.keywords
 
     
     result = {
       "url": url,
       "top_image": article.top_image if article.top_image != 'None' else '',
       "text": article.text,
-      "keywords": article.keywords,
-      "authors": article.authors
     }
 
     return jsonify(result)
