@@ -20,10 +20,14 @@ def get_details():
     article.download()
     article.parse()
 
-    
+    try:
+      top_image = article.top_image
+    except AttributeError:
+      top_image = ''
+
     result = {
       "url": url,
-      "top_image": article.top_image if article.top_image != 'None' else '',
+      "top_image": top_image,
       "text": article.text,
     }
 
