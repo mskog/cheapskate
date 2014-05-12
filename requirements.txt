@@ -9,7 +9,7 @@ cssselect==0.9.1
 gunicorn==18.0
 itsdangerous==0.24
 lxml==3.3.4
-newspaper==0.0.6
 nltk==2.0.4
+git+https://github.com/codelucas/newspaper
 requests==2.2.1
 wsgiref==0.1.2
