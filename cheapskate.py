@@ -18,7 +18,11 @@ def get_details():
 
     article = Article(url)
     article.download()
-    article.parse()
+
+    try:
+      article.parse()
+    except IOError:
+      return '', 422
 
     try:
       top_image = article.top_image
