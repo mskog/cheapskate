@@ -21,7 +21,7 @@ def get_details():
 
     try:
       article.parse()
-    except IOError:
+    except (IOError, UnicodeDecodeError):
       return '', 422
 
     try:
