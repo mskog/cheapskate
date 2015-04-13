@@ -1,6 +1,0 @@
-deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: mrcheese-cheapskate
-      
