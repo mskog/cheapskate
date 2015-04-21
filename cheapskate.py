@@ -25,7 +25,7 @@ def get_details():
       return '', 422
 
     try:
-      top_image = article.top_image
+      top_image = article.top_image.rsplit('?',1)[0]
     except AttributeError:
       top_image = ''
 
