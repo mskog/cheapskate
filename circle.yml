@@ -2,4 +2,4 @@ deployment:
   production:
     branch: master
     commands:
-      - ssh $DEPLOY_TO -t 'bash -l -c "cd /var/docker/cheapskate && sudo docker-compose build && sudo docker-compose up -d"'
+      - ssh $DEPLOY_TO -t 'bash -l -c "cd /var/docker/cheapskate && git pull origin master && sudo docker-compose build && sudo docker-compose up -d"'
