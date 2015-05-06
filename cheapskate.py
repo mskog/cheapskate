@@ -16,6 +16,14 @@ def get_details():
     if not url:
       abort(400)
 
+    if is_image(url):
+      result = {
+        "url": url,
+        "top_image": url,
+        "text": "",
+      }
+      return jsonify(result)
+
     article = Article(url)
     article.download()
 
@@ -43,10 +51,7 @@ def get_image():
   if not url:
     abort(400)
 
-  image_extensions = ['.jpg', '.gif', '.png', '.jpg', '.bmp', '.webp', '.webm']
-  extension = url[url.rfind('.'):]
-
-  if extension in image_extensions:
+  if is_image(url):
     return redirect(url)
 
   article = Article(url)
@@ -66,6 +71,11 @@ def get_image():
     return redirect(top_image)
   else:
     return '', 422
+
+def is_image(url):
+  image_extensions = ['.jpg', '.gif', '.png', '.jpg', '.bmp', '.webp', '.webm']
+  extension = url[url.rfind('.'):]
+  return extension in image_extensions
 
 
 if __name__ == '__main__':
